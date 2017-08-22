@@ -3,7 +3,7 @@ package br.com.conference.presentation.createaccount
 import br.com.conference.domain.createaccount.CreateAccountContract.IView
 import br.com.conference.domain.createaccount.CreateAccountContract.IInteractor
 import br.com.conference.domain.createaccount.CreateAccountContract.IPresenter
-import br.com.conference.domain.createaccount.model.AccountData
+import br.com.conference.share.model.AccountData
 import io.reactivex.Scheduler
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject

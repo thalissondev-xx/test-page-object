@@ -3,8 +3,8 @@ package br.com.conference.presentation.createaccount.di
 import android.content.Context
 import android.content.SharedPreferences
 import br.com.conference.data.createaccount.CreateAccountRepository
-import br.com.conference.data.createaccount.service.CreateAccountServiceLocal
-import br.com.conference.data.createaccount.service.CreateAccountServiceLocalImpl
+import br.com.conference.data.createaccount.service.local.CreateAccountService
+import br.com.conference.data.createaccount.service.local.CreateAccountServiceLocal
 import br.com.conference.domain.createaccount.CreateAccountContract.*
 import br.com.conference.domain.createaccount.CreateAccountInteractor
 import br.com.conference.presentation.createaccount.CreateAccountActivity
@@ -47,19 +47,7 @@ class CreateAccountModule(private val view: CreateAccountActivity) {
 
     @Provides
     @Singleton
-    fun provideRepositoryLocal(local: CreateAccountServiceLocalImpl): CreateAccountServiceLocal {
+    fun provideRepositoryLocal(local: CreateAccountServiceLocal): CreateAccountService {
         return local
-    }
-
-    @Provides
-    @Singleton
-    fun provideGson(): Gson {
-        return GsonBuilder().create()
-    }
-
-    @Provides
-    @Singleton
-    fun provideSharePreferences(): SharedPreferences {
-        return view.getSharedPreferences("br.com.conference", Context.MODE_PRIVATE)
     }
 }

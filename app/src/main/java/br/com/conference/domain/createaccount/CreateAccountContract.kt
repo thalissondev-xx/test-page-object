@@ -1,6 +1,6 @@
 package br.com.conference.domain.createaccount
 
-import br.com.conference.domain.createaccount.model.AccountData
+import br.com.conference.share.model.AccountData
 import io.reactivex.Single
 
 interface CreateAccountContract {

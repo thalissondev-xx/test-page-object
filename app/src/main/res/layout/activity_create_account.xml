@@ -11,7 +11,7 @@
         android:padding="30dp">
 
         <TextView
-            android:textSize="25dp"
+            android:textSize="25sp"
             android:textStyle="bold"
             android:layout_marginBottom="20dp"
             android:layout_width="wrap_content"

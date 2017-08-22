@@ -1,4 +1,4 @@
-package br.com.conference.domain.createaccount.model
+package br.com.conference.share.model
 
 data class AccountData(
         val firstName: String,

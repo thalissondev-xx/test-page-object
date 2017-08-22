@@ -8,10 +8,11 @@ import android.view.View
 import br.com.conference.R
 import br.com.conference.domain.createaccount.CreateAccountContract.IPresenter
 import br.com.conference.domain.createaccount.CreateAccountContract.IView
-import br.com.conference.domain.createaccount.model.AccountData
+import br.com.conference.share.model.AccountData
 import br.com.conference.presentation.createaccount.di.CreateAccountModule
 import br.com.conference.presentation.createaccount.di.DaggerCreateAccountComponent
 import br.com.conference.presentation.myaccount.MyAccountActivity
+import br.com.conference.share.di.module.GlobalModule
 import kotlinx.android.synthetic.main.activity_create_account.*
 import javax.inject.Inject
 
@@ -32,6 +33,7 @@ class CreateAccountActivity: AppCompatActivity(), IView {
         DaggerCreateAccountComponent
                 .builder()
                 .createAccountModule(CreateAccountModule(this))
+                .globalModule(GlobalModule(this))
                 .build()
                 .inject(this)
     }
@@ -45,10 +47,10 @@ class CreateAccountActivity: AppCompatActivity(), IView {
     private fun getValuesAndRequest() {
         presenter.saveAccount(
                 AccountData(
-                    etFirstName.text.toString(),
-                    etLastName.text.toString(),
-                    etEmail.text.toString(),
-                    etPassword.text.toString()
+                        etFirstName.text.toString(),
+                        etLastName.text.toString(),
+                        etEmail.text.toString(),
+                        etPassword.text.toString()
                 ))
     }
 
@@ -85,6 +87,7 @@ class CreateAccountActivity: AppCompatActivity(), IView {
     }
 
     override fun onDestroy() {
+        super.onDestroy()
         presenter.onViewDestroy()
     }
 }
