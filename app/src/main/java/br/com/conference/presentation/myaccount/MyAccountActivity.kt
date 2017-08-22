@@ -51,6 +51,7 @@ class MyAccountActivity: AppCompatActivity(), IView {
     }
 
     override fun onDestroy() {
+        super.onDestroy()
         presenter.onViewDestroy()
     }
 }
